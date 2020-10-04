@@ -79,9 +79,9 @@ app.post('/api/articles/:name/add-comment', (req, res) => {
       }
     );
 
-    const updateArticleInfo = await db
+    const updatedArticleInfo = await db
       .collection('articles')
-      .findOne({ name: articleInfo });
+      .findOne({ name: articleName });
       res.status(200).json(updatedArticleInfo);
   },res);
 });
