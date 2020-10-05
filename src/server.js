@@ -61,7 +61,7 @@ app.post('/api/articles/:name/upvote', async (req, res) => {
 });
 
 app.post('/api/articles/:name/add-comment', (req, res) => {
-  const { username, text } = req.body;
+  const { userName, text } = req.body;
   const articleName = req.params.name;
 
   withDB(async (db) => {
@@ -74,7 +74,7 @@ app.post('/api/articles/:name/add-comment', (req, res) => {
       },
       {
         $set: {
-          comments: articleInfo.comments.concat({ username, text }),
+          comments: articleInfo.comments.concat({ userName, text }),
         },
       }
     );
